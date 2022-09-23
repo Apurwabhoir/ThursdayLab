@@ -5,8 +5,8 @@ public class Question3
 {
 	public static void main(String[] args) 
 	{
-		System.out.println("... Welcome ...");
-		int menu_item,menu1,item_price=0,quantity=0;
+		System.out.println("... Hello Welcome ...");
+		int menu,menu1,price=0,qua=0;
 		  char ans;		  
 		  String item_name="";							// adding order list to string item_name
 		  Scanner sc=new Scanner(System.in);			// class variable
@@ -16,9 +16,9 @@ public class Question3
 			System.out.println("Please order....");
 			System.out.println(" MENUCARD:\n 1 : STARTERS \n 2 : MAIN COURSE \n 3 : DESERTS ");  //printing menu card 
 			
-			menu_item = sc.nextInt();					
+			menu = sc.nextInt();					
 			
-			switch(menu_item)				// to get users choice switch case is used
+			switch(menu)				// to get users choice switch case is used
 			{
 			case 1:
 				System.out.println(".. STARTERS MENU..");
@@ -27,22 +27,22 @@ public class Question3
 				System.out.println(" 3: Paneer 65 \t 200Rs.");
 				menu1=sc.nextInt();						
 				System.out.println("Enter quantity of selected food : ");        //multiply food price with quantity that user selects
-				quantity=sc.nextInt();							
+				qua=sc.nextInt();							
 				
-				switch(menu1)				//using switch case to get sub choice
+				switch(menu1)				//using  nested switch case to get sub choice
 				{
 					case 1:
-						item_price+= 150*quantity;					//calculate quantity
+						price+= 150*qua;					//calculate price of food with quantity of item that user select 
 						item_name+= "\n Masala Papad ";
 						break;
 		
 					case 2:
-							item_price+= 300*quantity;						
+							price+= 300*qua;						
 							item_name+= "\n Aloo Chaat ";
 							break;
 		
 					case 3:
-							item_price+= 200*quantity;					
+							price+= 200*qua;					
 							item_name+= "\n Paneer 65 ";
 							break;
 					default:
@@ -52,27 +52,27 @@ public class Question3
 				
 			case 2:
 				System.out.println(".. MAIN COURSE..");
-				System.out.println(" 1: Aloo matar \t 700Rs.");
+				System.out.println(" 1: Aloo matar \t700Rs.");
 				System.out.println(" 2: Paneer Masala \t500Rs.");
 				System.out.println(" 3: Palak Paneer \t450Rs.");
 				menu1=sc.nextInt();						
 				System.out.println("Enter quantity of selected food : ");        //multiply food price with quantity that user selects
-				quantity=sc.nextInt();							
+				qua=sc.nextInt();							
 				
-				switch(menu1)				//using switch case to get sub choice
+				switch(menu1)				//using nested switch case to get sub choice
 				{
 					case 1:
-						item_price+= 700*quantity;					//calculate quantity
+						price+= 700*qua;					//calculate price of food with quantity of item that user select  
 						item_name+= "\n Aloo matar ";
 						break;
 		
 					case 2:
-							item_price+= 500*quantity;						
+							price+= 500*qua;						
 							item_name+= "\n Paneer Masala ";
 							break;
 		
 					case 3:
-							item_price+= 450*quantity;					
+							price+= 450*qua;					
 							item_name+= "\n Palak Paneer ";
 							break;
 					default:
@@ -87,22 +87,22 @@ public class Question3
 				System.out.println(" 3: Brownies \t350Rs.");
 				menu1=sc.nextInt();						
 				System.out.println("Enter quantity of selected food : ");        //multiply food price with quantity that user selects
-				quantity=sc.nextInt();							
+				qua=sc.nextInt();							
 				
-				switch(menu1)				//using switch case to get sub choice
+				switch(menu1)				//using  nested switch case to get sub choice
 				{
 					case 1:
-						item_price+= 300*quantity;					//calculate quantity
+						price+= 300*qua;					//calculate price of food with quantity of item that user select 
 						item_name+= "\n Apple pie ";
 						break;
 		
 					case 2:
-							item_price+= 400*quantity;						
+							price+= 400*qua;						
 							item_name+= "\n Cheesecake ";
 							break;
 		
 					case 3:
-							item_price+= 350*quantity;					
+							price+= 350*qua;					
 							item_name+= "\n Brownies ";
 							break;
 					default:
@@ -117,11 +117,10 @@ public class Question3
 		}
 		while(ans=='Y'||ans=='y');
 		System.out.println("\t \t ...Thank You ...");
-	  	System.out.println("Oredered Food Items are : \t\n"+item_name+ "" +quantity); //Print ordered food which user select
-	  	System.out.println("The Total bill amount is : \t"+item_price); //print bill amount
+	  	System.out.println("Oredered Food Items are : \t\n"+item_name+ "" +qua); //Print ordered food which user select
+	  	System.out.println("The Total bill amount is : \t"+price); //print bill amount
 	}
 
 
 	
 }
-
