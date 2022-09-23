@@ -1,1 +1,127 @@
+//Q3 Create a menu for food counter and accept the items from user and display the final Bill amount with the item is ordered
+
+import java.util.Scanner;
+public class Question3 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("... Welcome ...");
+		int menu_item,menu1,item_price=0,quantity=0;
+		  char ans;		  
+		  String item_name="";							// adding order list to string item_name
+		  Scanner sc=new Scanner(System.in);			// class variable
+		
+		do 
+		{
+			System.out.println("Please order....");
+			System.out.println(" MENUCARD:\n 1 : STARTERS \n 2 : MAIN COURSE \n 3 : DESERTS ");  //printing menu card 
+			
+			menu_item = sc.nextInt();					
+			
+			switch(menu_item)				// to get users choice switch case is used
+			{
+			case 1:
+				System.out.println(".. STARTERS MENU..");
+				System.out.println(" 1: Masala Papad \t 150Rs.");
+				System.out.println(" 2: Aloo Chaat \t 300Rs.");
+				System.out.println(" 3: Paneer 65 \t 200Rs.");
+				menu1=sc.nextInt();						
+				System.out.println("Enter quantity of selected food : ");        //multiply food price with quantity that user selects
+				quantity=sc.nextInt();							
+				
+				switch(menu1)				//using switch case to get sub choice
+				{
+					case 1:
+						item_price+= 150*quantity;					//calculate quantity
+						item_name+= "\n Masala Papad ";
+						break;
+		
+					case 2:
+							item_price+= 300*quantity;						
+							item_name+= "\n Aloo Chaat ";
+							break;
+		
+					case 3:
+							item_price+= 200*quantity;					
+							item_name+= "\n Paneer 65 ";
+							break;
+					default:
+						System.out.println("Invalid choice");	//when user enters invalid number 
+				}
+				break;
+				
+			case 2:
+				System.out.println(".. MAIN COURSE..");
+				System.out.println(" 1: Aloo matar \t 700Rs.");
+				System.out.println(" 2: Paneer Masala \t500Rs.");
+				System.out.println(" 3: Palak Paneer \t450Rs.");
+				menu1=sc.nextInt();						
+				System.out.println("Enter quantity of selected food : ");        //multiply food price with quantity that user selects
+				quantity=sc.nextInt();							
+				
+				switch(menu1)				//using switch case to get sub choice
+				{
+					case 1:
+						item_price+= 700*quantity;					//calculate quantity
+						item_name+= "\n Aloo matar ";
+						break;
+		
+					case 2:
+							item_price+= 500*quantity;						
+							item_name+= "\n Paneer Masala ";
+							break;
+		
+					case 3:
+							item_price+= 450*quantity;					
+							item_name+= "\n Palak Paneer ";
+							break;
+					default:
+						System.out.println("Invalid choice");	//when user enters invalid number 
+				}
+				break;
+				
+			case 3:
+				System.out.println(".. DESERTS..");
+				System.out.println(" 1: Apple pie \t300Rs.");
+				System.out.println(" 2: Cheesecake \t400Rs.");
+				System.out.println(" 3: Brownies \t350Rs.");
+				menu1=sc.nextInt();						
+				System.out.println("Enter quantity of selected food : ");        //multiply food price with quantity that user selects
+				quantity=sc.nextInt();							
+				
+				switch(menu1)				//using switch case to get sub choice
+				{
+					case 1:
+						item_price+= 300*quantity;					//calculate quantity
+						item_name+= "\n Apple pie ";
+						break;
+		
+					case 2:
+							item_price+= 400*quantity;						
+							item_name+= "\n Cheesecake ";
+							break;
+		
+					case 3:
+							item_price+= 350*quantity;					
+							item_name+= "\n Brownies ";
+							break;
+					default:
+						System.out.println("Invalid choice");	//when user enters invalid number 
+				}
+				break;
+		
+		
+			}
+				System.out.println("Do you want to order another dish y/n"); 		//order another food
+			    ans=sc.next().charAt(0);	
+		}
+		while(ans=='Y'||ans=='y');
+		System.out.println("\t \t ...Thank You ...");
+	  	System.out.println("Oredered Food Items are : \t\n"+item_name+ "" +quantity); //Print ordered food which user select
+	  	System.out.println("The Total bill amount is : \t"+item_price); //print bill amount
+	}
+
+
+	
+}
 
