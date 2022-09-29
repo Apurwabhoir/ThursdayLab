@@ -7,7 +7,8 @@ public class Que5
 	public static void main(String[] args) 
 	{
 		Scanner sc=new Scanner(System.in);
-		int size,i,sum=0,avg=0;
+		int size,i,sum=0;
+		double avg=0;
 		System.out.println("\nEnter the size");		//accepting size of array
 		size=sc.nextInt();
 		int num[]=new int[size];
@@ -28,10 +29,7 @@ public class Que5
 		}
 		System.out.print("\nThe Sum of array elements are : "+sum);
 		
-		for(i=0;i<size;i++)							//average of array elements
-		{
-			avg=sum/size;
-		}
+			avg=(double)sum/size;				//average of array elements
 		System.out.print("\nThe Average of array elements are : "+avg);
 		
 		
