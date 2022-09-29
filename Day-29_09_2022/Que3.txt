@@ -40,18 +40,15 @@ public class Que3
 	
 	public void evenOdd(int num)
 	{
-		int eNo=0,oNo=0;
 		if(num%2==0)						//checking num is even or odd
 		{
-			eNo=num;
-			System.out.println("Even No."+eNo);
+			System.out.println("Even No."+num);
 		}
 		else
 		{
-			oNo=num;
-			System.out.println("Odd No."+oNo);
+			System.out.println("Odd No."+num);
 		}
-		//return num;
+		
 	}
 	public void divi10(int num)
 	{
