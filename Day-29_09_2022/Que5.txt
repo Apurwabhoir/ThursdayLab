@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+/*Lab QUE5: WAP to accept no from user in array and find out average and sum of array numbers.*/
+public class Que5
+{
+
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		int size,i,sum=0,avg=0;
+		System.out.println("\nEnter the size");		//accepting size of array
+		size=sc.nextInt();
+		int num[]=new int[size];
+		System.out.println("Enter " +size+ "Number:");	//accepting numbers form user
+		for(i=0;i<size;i++)
+		{
+			num[i]=sc.nextInt();
+		}	
+		System.out.println("\nThe array elements are:");		//printing array elements
+		for(i=0;i<size;i++)
+		{
+			System.out.print("\n "+num[i]);
+		}
+		
+		for(i=0;i<size;i++)								//sum of array elements
+		{
+			sum +=num[i];
+		}
+		System.out.print("\nThe Sum of array elements are : "+sum);
+		
+		for(i=0;i<size;i++)							//average of array elements
+		{
+			avg=sum/size;
+		}
+		System.out.print("\nThe Average of array elements are : "+avg);
+		
+		
+
+	}
+
+}
