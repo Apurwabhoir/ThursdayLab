@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+/*Lab QUE3: WAP to accept a no from user and check it is prime or not. Pass this number in different function 
+ and check it is even or odd. IF number is even than check it is divisible by 10 
+ or not in different function and is no is odd than check it is divisible by 3 or not in different function
+ */
+public class Que3 
+{
+
+	public static void main(String[] args)
+	{
+		Que3 obj=new Que3();
+		int num=obj.prime();		//calling function
+		obj.evenOdd(num);			
+		obj.divi10(num);
+		obj.divi3(num);
+	}
+	
+	public int prime()
+	{
+		Scanner sc=new Scanner(System.in);
+		int num,i,count=0;
+		System.out.println("Enter The Number ");
+		num = sc.nextInt(); 
+		for(i=2;i<num;i++)			  	//prime number is no divided by itself and 1 so start from 2
+		{
+			if(num%i==0)
+			{
+				count++;
+				break;
+			}
+		}
+		if(count==0)                       //check count is equal to 0 
+	           System.out.println(+num+" is a Prime Number.");                                                               
+	        else
+	           System.out.println(+num+" is not a Prime Number."); 
+		
+		return num;			
+	}
+	
+	public void evenOdd(int num)
+	{
+		int eNo=0,oNo=0;
+		if(num%2==0)						//checking num is even or odd
+		{
+			eNo=num;
+			System.out.println("Even No."+eNo);
+		}
+		else
+		{
+			oNo=num;
+			System.out.println("Odd No."+oNo);
+		}
+		//return num;
+	}
+	public void divi10(int num)
+	{
+		if(num%10==0)	
+			System.out.println("Number is divisible by 10");
+		else
+			System.out.println("Number is not divisible by 10");
+	}
+	
+	public void divi3(int num)
+	{
+		if(num%3==0)	
+			System.out.println("Number is divisible by 3");
+		else
+			System.out.println("Number is not divisible by 3");
+	}	
+}
