@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+/*Lab QUE4: WAP to accept size from user accordingly accept numbers from user and
+  also accept the no from user which you want to delete from your array and display the output.*/
+public class Que4 
+{
+
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		int size,i,delete;
+		System.out.println("\nEnter the size");					//accepting size of array
+		size=sc.nextInt();
+		int num[]=new int[size];
+		System.out.println("Enter " +size+ "Number:");			//accepting numbers form user
+		for(i=0;i<size;i++)
+		{
+			num[i]=sc.nextInt();
+		}	
+		System.out.println("The array elements are:");			//printing array elements
+		for(i=0;i<size;i++)
+		{
+			System.out.print(" "+num[i]);
+		}
+		
+		System.out.println("\nEnter no which you want to delete..");		
+		delete=sc.nextInt();
+		System.out.println("After deleting array element:");			//Deleting array element
+		for(i=0;i<size;i++)
+		{
+			if(num[i]!=delete)
+			{
+				int n1[]=new int[size];					//store element in different array
+				n1[i]=num[i];							
+				System.out.print(" "+num[i]);
+			}
+		
+		}
+		
+	}
+
+}
