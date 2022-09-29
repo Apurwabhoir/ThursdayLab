@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+/*Lab QUE6 : WAP to display prime no between 1 to 150 in two dimension array*/
+public class Que6 
+{
+
+	public static void main(String[] args) 
+	{
+		
+		Scanner sc = new Scanner(System.in);
+        
+        int num1,num2,i,j,flag;				// Declare the variables
+ 
+        
+        System.out.printf("Enter starting Number : ");	// Ask user for starting Number where form user want to start
+        num1=sc.nextInt(); 									// Take input
+ 
+        System.out.printf("\nEnter Ending Number : ");	// Ask user for Ending Number where user want to end
+        num2=sc.nextInt(); 									// Take input
+ 
+        
+        System.out.printf("Prime numbers between " +num1+ " and " +num2+ " are: ", num1, num2);	// Print display message
+ 
+        
+        for (i=num1;i<=num2;i++) 					// Traverse each number with the help of for loop
+        {   											
+            if (i==1 || i==0)					//  0 and 1 as they are neither prime nor not prime
+                continue;							
+ 
+            
+            flag = 1;								 //flag variable to tell if i is prime or not
+ 
+            for (j=2;j<=i/2;++j) 
+            {
+                if (i%j == 0)
+                {
+                    flag=0;
+                    break;
+                }
+            }
+           
+            if (flag==1)						// flag = 1 means prime and flag = 0 means is not prime
+                System.out.println(i);
+        }
+    }
+}
