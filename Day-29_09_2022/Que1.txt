@@ -1,1 +1,35 @@
+import java.util.Scanner;
+
+/*Lab QUE1: Write a program to accept a number from user and then prints the sum of the even and odd integers.*/
+public abstract class Que1
+{
+
+	public static void main(String[] args) 
+	{	 int i,sum_Odd=0,sum_Even=0,num;
+		 char ans;
+		 Scanner sc=new Scanner(System.in);
+		do
+		{
+			System.out.print("Enter number: ");       
+			num=sc.nextInt(); 
+			
+				if(num%2==0)
+				{
+					sum_Even=sum_Even+num;
+				}
+				else
+				{
+					sum_Odd=sum_Odd+num;
+				}
+						
+		
+			System.out.println("Do you want to add another number  y/n"); 
+		    ans=sc.next().charAt(0);
+		}
+		while(ans=='Y'||ans=='y');
+		System.out.println("Sum of Even Number"+sum_Even);
+		System.out.println("Sum of Odd Number"+sum_Odd);
+	}
+
+}
 
