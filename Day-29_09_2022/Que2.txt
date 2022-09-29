@@ -7,22 +7,22 @@ public class Que2
 	public static void main(String[] args)
 	{
 		Scanner sc=new Scanner(System.in);
-		int num1,num2,hcf=0;
-		System.out.print("Enter number: ");       
+		int num1,num2,hcf=0;			  //declaration of variable and initialization of hcf as 0
+		System.out.print("Enter number: ");       //Accept number form user
 		num1=sc.nextInt(); 
 		
 		System.out.print("Enter number: ");       
 		num2=sc.nextInt(); 
 		
-		for(int i=1;i<=num1 || i<=num2;i++)
+		for(int i=1;i<=num1 || i<=num2;i++)			
 		{
-			if(num1%i==0 && num2%i == 0)
+			if(num1%i==0 && num2%i == 0)			//checking num is divided by any no.that  is equal to 0
 				{
-					hcf=i;
+					hcf=i;							//store i value in hcf
 				}
 			
 		}
-		System.out.println("HCF of given two numbers is ::"+hcf);
+		System.out.println("HCF of given two numbers is "+hcf);		//printing hcf of 2 no.
 		
 			
 	}
