@@ -5,31 +5,30 @@ public abstract class Que1
 {
 
 	public static void main(String[] args) 
-	{	 int i,sum_Odd=0,sum_Even=0,num;
+	{	 int i,sum_Odd=0,sum_Even=0,num;			//declaration of variable and initialization of sum_Odd & sum_Even as 0
 		 char ans;
 		 Scanner sc=new Scanner(System.in);
-		do
+		do											
 		{
 			System.out.print("Enter number: ");       
 			num=sc.nextInt(); 
 			
-				if(num%2==0)
+				if(num%2==0)						//checking num is even or odd
 				{
-					sum_Even=sum_Even+num;
+					sum_Even=sum_Even+num;			//addition of even no.
 				}
 				else
 				{
-					sum_Odd=sum_Odd+num;
+					sum_Odd=sum_Odd+num;			//addition of odd no.
 				}
 						
 		
-			System.out.println("Do you want to add another number  y/n"); 
+			System.out.println("Do you want to add another number  y/n");  // add another no.
 		    ans=sc.next().charAt(0);
 		}
-		while(ans=='Y'||ans=='y');
-		System.out.println("Sum of Even Number"+sum_Even);
-		System.out.println("Sum of Odd Number"+sum_Odd);
+		while(ans=='Y'||ans=='y');				
+		System.out.println("Sum of Even Number"+sum_Even);			//printing sum of even no.
+		System.out.println("Sum of Odd Number"+sum_Odd);			//printing sum of odd no.
 	}
 
 }
-
