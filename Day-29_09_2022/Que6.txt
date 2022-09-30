@@ -1,78 +1,46 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
-public class Que6
+/*Lab QUE6 : WAP to display prime no between 1 to 150 in two dimension array*/
+public class Que6 
 {
-	boolean isPrime(int n) 				// To check a number is prime or not
+
+	public static void main(String[] args) 
 	{
-		int count = 0;
-		for(int i = 1; i<=n; i++)
-		{
-			if(n%i == 0)
-				count++;
-		}
-		if(count == 2)
-			return true;
-		else
-			return false;
-	}
-
-	public static void main(String args[])throws IOException
-	{
-		Que6 ob = new Que6();			// create object 
-
-		// create object of buffer stream.
-		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-
 		
-		System.out.print("Enter the number of rows : ");			// enter the number of rows and column.
-		int m=Integer.parseInt(br.readLine());
-
-		System.out.print("Enter the number of columns : ");
-		int n=Integer.parseInt(br.readLine());
-
-		// 2D array for storing 'm*n' prime numbers
-		int A[][]=new int[m][n];
-
-		// 1D array for storing 'm*n' prime numbers
-		int B[] = new int [m*n];
-
-		// For taking natural numbers
-		int i = 0, j;
-		int k = 1; 
-
-		// for iD Array.
-		while(i < m*n)
-		{
-			if(ob.isPrime(k)==true)
-			{
-				B[i] = k;
-				i++;
-			}
-			k++;
-		}
-
-		// for 2D Array.
-		int x = 0;
-		for(i=0; i<m; i++)
-		{
-			for(j=0; j<n; j++)
-			{
-				A[i][j] = B[x];
-				x++;
-			}
-		}
-
-		// printing the result in 2D Array.
-		System.out.println("The Final Array is : ");
-		for(i=0; i<m; i++)
-		{
-			for(j=0; j<n; j++)
-			{
-				System.out.print(A[i][j]+"\t");
-			}
-			System.out.println();
-		}
-	}
+		Scanner sc = new Scanner(System.in);
+        
+        int num1,num2,i,j,flag;				// Declare the variables
+ 
+        
+        System.out.printf("Enter starting Number : ");	// Ask user for starting Number where form user want to start
+        num1=sc.nextInt(); 									// Take input
+ 
+        System.out.printf("\nEnter Ending Number : ");	// Ask user for Ending Number where user want to end
+        num2=sc.nextInt(); 									// Take input
+ 
+        
+        System.out.printf("Prime numbers between " +num1+ " and " +num2+ " are: ", num1, num2);	// Print display message
+ 
+        
+        for (i=num1;i<=num2;i++) 					// Traverse each number with the help of for loop
+        {   											
+            if (i==1 || i==0)					//  0 and 1 as they are neither prime nor not prime
+                continue;							
+ 
+            
+            flag = 1;								 //flag variable to tell if i is prime or not
+ 
+            for (j=2;j<=i/2;++j) 
+            {
+                if (i%j == 0)
+                {
+                    flag=0;
+                    break;
+                }
+            }
+           
+            if (flag==1)						// flag = 1 means prime and flag = 0 means is not prime
+                System.out.println(i);
+        }
+    }
 }
