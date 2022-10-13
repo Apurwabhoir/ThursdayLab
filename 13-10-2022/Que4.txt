@@ -9,7 +9,7 @@ public class Que4
 	public static void main(String[] args) 
 	{
 		Scanner sc = new Scanner(System.in); 
-		int pos=0,num,number;
+		int pos=0,num,number;		//initialize the variables
 		 System.out.print("Enter How many Numbers you want");
 		 num=sc.nextInt();
 		 System.out.println("Enter " +num+ " Numbers : ");
@@ -21,7 +21,7 @@ public class Que4
 					pos=pos+number;
 				}
 			}
-                        System.out.println( "Sum is : " +pos);
+                        System.out.println( "Sum is : " +pos);		//print the sum of positive numbers
 	
 	}
 
