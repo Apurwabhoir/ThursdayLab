@@ -1,0 +1,68 @@
+/*Multilevel:
+
+WAP to create a class Reverse No, second class SOD , Third class use both the class property and display the output
+*/
+package thursdaylab;
+
+import java.util.Scanner;
+
+public class ReverseNo 
+{
+	
+	public void reverse()
+	{
+		Scanner sc = new Scanner(System.in);     
+		System.out.println("\n Reverse The Digit");
+		System.out.println("\n Enter the which no u want to Reverse:");		//getting the number from user
+		int num = sc.nextInt();
+		int rev=0;						//this variable only use in this block of body
+		while(num != 0)   
+		{  
+			int remainder = num % 10;  		//finds the last digit of the given number
+			rev = rev * 10 + remainder;     //in rev store the reverse number
+			num = num/10;  					//removes the last digit from the number  
+		} 
+		System.out.println("The reverse of the given number is: " + rev);		//printing the output
+	}
+
+}
+
+package thursdaylab;
+
+import java.util.Scanner;
+
+public class Sod extends ReverseNo
+{
+	public void sumOfDigit()
+	{
+		Scanner sc = new Scanner(System.in); 
+		System.out.println("\n Sum Of Digit");
+		System.out.println("Enter which no u want to Perform SOD:");		//getting the number from user
+		int num = sc.nextInt();
+		int sum=0,digit;						//this variable only use in this block of body 
+		while(num > 0)  
+		{  
+		    digit = num % 10;  		//finds the last digit of the given number
+		    sum = sum + digit; 		//adds last digit to the variable sum   
+		    num = num / 10;  		//removes the last digit from the number  
+		}  
+		System.out.println("sum of digit " +sum);		//printing the output
+	}
+}
+
+package thursdaylab;
+
+public class Que2 extends Sod		//acquires properties from sod
+{
+
+	public static void main(String[] args) 
+	{
+		ReverseNo ob=new ReverseNo();		//creating the object of base classes
+		Sod ob1=new Sod();
+		
+		ob.reverse();						//calling the methods using object 
+		ob1.sumOfDigit();
+
+	}
+
+}
