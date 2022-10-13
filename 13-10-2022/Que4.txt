@@ -1,0 +1,28 @@
+/*Write a program to accept the positive numbers  from user and display the sum of that numbers using loop.*/
+package thursdaylab;
+
+import java.util.Scanner;
+
+public class Que4
+{
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in); 
+		int pos=0,num,number;
+		 System.out.print("Enter How many Numbers you want");
+		 num=sc.nextInt();
+		 System.out.println("Enter " +num+ " Numbers : ");
+			for(int i=0;i<num;i++)
+			{
+				number=sc.nextInt();
+				if(number>0)
+				{
+					pos=pos+number;
+				}
+			}
+                        System.out.println( "Sum is : " +pos);
+	
+	}
+
+}
