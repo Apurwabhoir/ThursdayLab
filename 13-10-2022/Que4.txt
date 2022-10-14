@@ -15,10 +15,10 @@ public class Que4
 		 System.out.println("Enter " +num+ " Numbers : ");
 			for(int i=0;i<num;i++)
 			{
-				number=sc.nextInt();
-				if(number>0)
+				number=sc.nextInt();		
+				if(number>0)			//if condition used for number is greater than 0
 				{
-					pos=pos+number;
+					pos=pos+number;		//then do positive no. addition
 				}
 			}
                         System.out.println( "Sum is : " +pos);		//print the sum of positive numbers
