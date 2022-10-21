@@ -1,0 +1,125 @@
+/*Accept some details from the employee
+Accept Name, E_ID, phone_no,address, salary,Expenses(User) 5000-DMart
+
+N number of employee
+
+Calculate the highest salary,highest expenses
+
+Display the employee name who is getting highest salary*/
+
+package thursday;
+
+import java.util.Scanner;
+
+public class Employee_info
+{
+	Scanner sc=new Scanner(System.in);   
+	
+	int emp_id,salary,exp; 
+	String name,address;	   
+    long pNo;
+	static int max_salary;
+	   
+	   
+	   public int getSalary()   //we used getter setter method for we want max_sal variable in diff class
+	   {
+		return salary;
+	   }
+	   
+	   public void setSalary(int salary)
+	   {
+		   this.salary = salary;
+	   }
+}
+
+
+
+
+package thursday;
+import java.util.Scanner;
+public class Cal_maxsalary extends Employee_info
+{
+	static int size;
+	int tot_exp=0;
+	
+		
+	public void emp_details()			//accept details of employees
+	{
+    	char ch;
+    	System.out.println("Enter Employee's Id : ");
+    	emp_id=sc.nextInt();
+    	System.out.println("Enter Employee's Name : ");
+    	name=sc.next();
+    	System.out.println("Enter Employee's address : ");
+    	address=sc.next();
+    	System.out.println("Enter Employee's Phone no : ");
+    	pNo=sc.nextLong();
+    	System.out.println("Enter Employee's Salary : ");
+    	salary=sc.nextInt();
+    	setSalary(salary);
+    	
+    	System.out.println("Enter your expenses: ");
+    	do 
+    	{	
+    		System.out.println("\nEnter Expense where you are spend that money : ");
+    		String reason=sc.next();
+    		System.out.println("Enter Expenses :");
+    		exp=sc.nextInt();
+    		
+    		tot_exp=tot_exp + exp;
+    		
+    		System.out.println("you want add More Expenses? y/n");
+    		ch=sc.next().charAt(0);
+    	}
+    	while(ch=='y'|| ch=='Y');
+    }
+    
+    public void display()				//display details of employees
+    {
+    	System.out.println("Employee's ID : "+emp_id);
+    	System.out.println("Employee's name : "+name);
+    	System.out.println("Employee's Address : "+address);
+    	System.out.println("Employee's Phone No. : "+pNo);
+    	System.out.println("Employee's Salary : "+salary);
+    	System.out.println("Total Expenses of "+name+" are "+tot_exp);
+    	
+    	System.out.println("After Expenses Remaining Salary of Employee "+(salary - tot_exp));
+    }
+	
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter how many no. of Employees ypu want to check salary max");
+		size=sc.nextInt();
+		Cal_maxsalary emp[]=new Cal_maxsalary[size];
+		
+		for(int i=0;i<size;i++)					//For loop for accept n no. of array 
+		{
+			emp[i]=new Cal_maxsalary();
+			emp[i].emp_details();
+		}
+		
+		max_salary=emp[0].getSalary();			//emp[0] for max salary as 1st employee
+		
+		for(int i=1;i<size;i++)
+		{
+													//checking max salary is greater than other employee's salary
+			if(emp[i].getSalary() > max_salary)		
+			{
+				max_salary = emp[i].getSalary();
+			}
+		}
+		for(int i=0;i<size;i++) 
+		{
+			
+			if(emp[i].getSalary()==max_salary)			//for checking max salary to employees salary
+			{
+				System.out.println("Employee Details with Highest Salary ");
+				emp[i].display();
+			}
+		}
+		
+	}
+	
+}
+
