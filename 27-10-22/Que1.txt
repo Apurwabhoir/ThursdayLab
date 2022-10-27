@@ -1,0 +1,131 @@
+/* Lab Q1: WAP to create ATM where customer enter our details
+ *  ,pin and withdrawal cash or deposit cash..
+ *  In this program you have to use encapsulation for finding user details and 
+ *  inheritance,polymorphism and interface.
+ */
+ 
+ //interface
+package thursday;
+
+public interface BankBalance 
+{
+	
+	public void process();		
+
+}
+
+
+//encapsulation
+package thursday;
+
+public class Atm implements BankBalance
+{
+	private int pin=7890;
+	private int balance=500000;
+	private int withdrawal;
+	private int deposit;
+	 
+	//we used getter setter methods for we want variable in different  class
+	 public int getpin() {					
+			return pin;
+		}
+
+		public void setpin(int abc) {
+			this.pin = abc;
+		}
+		
+		public int getdeposit() {
+			return balance;
+		}
+		
+		public void setdeposit(int new_val) 
+		{
+			this.balance += new_val;			//deposit cash
+		}
+		
+		public int getwithdrawal() {
+			return balance;
+		}
+		
+		public void setwithdrawal(int new_val) 
+		{
+			this.balance -= new_val;		//withdrawal cash
+		}
+		
+		//interface BankBalance method override
+		
+		@Override
+		public void process()
+		{
+			System.out.println(" Thank you ");
+		}
+
+}
+
+//main
+package thursday;
+
+import java.util.Scanner;
+
+
+
+public class user extends Atm 
+{	
+	
+	public static void main(String[] args) 
+	{
+		
+		user ob=new user();
+		ob.process();
+		Atm obj= new Atm();
+		obj.process();
+	}
+	
+	public void process()
+	{
+		char ans;
+		int u_pin,ch,balance=0;
+		Atm obj=new Atm();
+		Scanner sc=new Scanner(System.in);
+		
+		
+		System.out.println("Enter pin");
+		u_pin=sc.nextInt();
+		obj.getpin();
+		if(obj.getpin()==u_pin)		//for checking pin is correct or not
+		{
+			do
+			{
+				System.out.println("what do you want to do\n 1: Deposit \n 2: Withdrawal");
+				ch=sc.nextInt();
+				switch (ch)
+				{
+				
+				case 1:
+					System.out.println("Enter Amount you want to Deposit");			//for deposit money 
+					balance=sc.nextInt();
+					obj.setdeposit(balance);
+					System.out.println("The Account balance is Rs."+obj.getdeposit());
+					break;
+					
+				case 2:
+					System.out.println("Enter Amount you want to Withdrawal");		//for withdrawal money
+					balance=sc.nextInt();
+					obj.setwithdrawal(balance);
+					obj.getwithdrawal();
+					System.out.println("The Account balance is Rs."+obj.getwithdrawal());
+					break;
+				}
+			
+			
+			System.out.println("Do you want to continue y/n");
+			ans=sc.next().charAt(0);
+		}
+		while(ans=='Y'||ans=='y');
+	}
+		else 
+		System.out.println("Your Entered pin is wrong try again please");	
+		
+	}
+
+}
