@@ -69,8 +69,8 @@ public class ValidPass
                 "(You hava to follow above Conditions.): ");
         password1=sc.next();
         
-        try {
-            //System.out.println("Is Password " + password1 + " valid?");
+        try 
+	{
             isValid(password1);
             System.out.println("Valid Password");
         }
