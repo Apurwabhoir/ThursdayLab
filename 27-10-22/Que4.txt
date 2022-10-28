@@ -71,10 +71,10 @@ public class ValidPass
         
         try 
 	{
-            isValid(password1);
+            Valid(password1);
             System.out.println("Valid Password");
         }
-        catch (PassException e) 
+        catch (PassException e) 		//for invalid password msg display
         {
             System.out.print(e.getMessage());
             System.out.println(e.DisplayMsg());
@@ -82,7 +82,7 @@ public class ValidPass
 
     }
 
-	public static void isValid(String password) throws PassException
+	public static void Valid(String password) throws PassException
 	{
 		  
         // for checking if password length
@@ -140,7 +140,7 @@ public class ValidPass
             int count = 0;
   
             // checking capital letters
-            for (int i = 65; i <= 90; i++) 
+            for (int i = 65; i <= 90; i++) 	//ASCII value of capital letters start from 65 and end 90
             {
   
                 // type casting
@@ -163,7 +163,7 @@ public class ValidPass
             int count = 0;
   
             // checking small letters
-            for (int i = 90; i <= 122; i++) 
+            for (int i = 95; i <= 122; i++) 	//ASCII value of small letters start from 95 and end 122
             {
   
                 // type casting
