@@ -1,0 +1,63 @@
+import java.util.*;
+
+//WAP to create a two dimensional array fill it with given few characters in Java
+
+public class Que7 
+{
+
+	public static void main(String[] args)
+	{
+		Scanner Sc = new Scanner(System.in);
+
+	    System.out.print("Enter size of the Array : ");			// enter the size form user
+	    int num = Sc.nextInt();
+	    
+	    if (num < 2 || num > 10)								// enter size in given range.
+	      System.out.print("Size out of Range");
+	    else 
+	    {
+	      char A[][] = new char[num][num];					 // declare array object.
+
+	      System.out.print("Enter first character : ");	// enter characters from user
+	      char c1 = Sc.next().charAt(0);
+
+	      System.out.print("Enter second character : ");
+	      char c2 = Sc.next().charAt(0);
+
+	      System.out.print("Enter third character : ");
+	      char c3 = Sc.next().charAt(0);
+
+	      for (int i = 0; i < num; i++)
+	      {
+	        for (int j = 0; j < num; j++) 
+	        {
+	          if (i == j || (i + j) == (num - 1))		// Filling the diagonals with third character
+	            A[i][j] = c3;
+	          else 								// Filling all other positions with second character
+	            A[i][j] = c2;
+	        }
+	      }
+
+	      for (int i = 0; i < num / 2; i++) 
+	      {
+	        for (int j = i + 1; j < num - 1 - i; j++) 	 // Filling the upper positions.
+	        {
+	         
+	          A[i][j] = c1;
+	          
+	          A[num - 1 - i][j] = c1;					// Filling the lower positions.
+	        }
+	      }
+
+	      // Printing the Matrix
+	      System.out.println("\nOutput : \n");
+	      for (int i = 0; i < num; i++) {
+	        for (int j = 0; j < num; j++) {
+	          System.out.print(A[i][j] + " ");
+	        }
+	        System.out.println();
+	      }
+	    }
+	}
+
+}
