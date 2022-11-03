@@ -6,20 +6,20 @@ package multi_threads;
 
 public class Message1 extends Thread
 {
-	String str;
+	String str;		// global variable
 	
     public Message1(String s)
     {
         str=s;  
     }
-    public void run()
+    public void run()		//used to perform action for a thread.
     {
         while(true)
         {  
-        	System.out.println(" class1 " +str); 
+        	System.out.println(" class1 " +str); 	//for printing msg
             try
             {
-                Thread.sleep(1000);
+                Thread.sleep(1000);		//used to pause the execution of current thread for specified time
             }
             catch(InterruptedException e)
             { 
@@ -37,7 +37,7 @@ public class Message2 extends Thread
 {
 	 public static void main(String[] args) 
 		{
-	    	Message1 t1=new Message1("Message1 Hi.....");
+	    	Message1 t1=new Message1("Message1 Hi.....");	//for msg printing
 			t1.start();				 //used to begin the execution of thread
 			Message2 t2=new Message2("Message2 Hi.....");
 			t2.start();
@@ -49,14 +49,14 @@ public class Message2 extends Thread
     {
         msg=s;  
     }
-    public void run()
+    public void run()	//used to perform action for a thread.
     {
         while(true)
         {  
         	System.out.println(" class2 "+msg); 
             try
             {
-                Thread.sleep(1000);
+                Thread.sleep(1000);		//used to pause the execution of current thread for specified time
             }
             catch(InterruptedException e)
             { 
