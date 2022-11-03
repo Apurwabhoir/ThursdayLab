@@ -1,0 +1,67 @@
+/*Ques 1. Write a program that creates 2 threads - each displaying a message 
+ * (Pass the message as a parameter to the constructor). 
+ * The threads should display the messages continuously till the user presses any key.
+ */
+package multi_threads;
+
+public class Message1 extends Thread
+{
+	String str;
+	
+    public Message1(String s)
+    {
+        str=s;  
+    }
+    public void run()
+    {
+        while(true)
+        {  
+        	System.out.println(" class1 " +str); 
+            try
+            {
+                Thread.sleep(1000);
+            }
+            catch(InterruptedException e)
+            { 
+            	
+                System.out.println(e.toString());
+            }           
+        }
+    }
+
+}
+
+package multi_threads;
+
+public class Message2 extends Thread
+{
+	 public static void main(String[] args) 
+		{
+	    	Message1 t1=new Message1("Message1 Hi.....");
+			t1.start();				 //used to begin the execution of thread
+			Message2 t2=new Message2("Message2 Hi.....");
+			t2.start();
+		}
+	 
+	String msg;
+	
+    public Message2(String s)
+    {
+        msg=s;  
+    }
+    public void run()
+    {
+        while(true)
+        {  
+        	System.out.println(" class2 "+msg); 
+            try
+            {
+                Thread.sleep(1000);
+            }
+            catch(InterruptedException e)
+            { 
+                System.out.println(e.toString());
+            }           
+        }
+    }
+}
