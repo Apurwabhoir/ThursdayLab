@@ -1,0 +1,115 @@
+/*Ques2. Write a Java program using Synchronized Threads, which demonstrates Producer Consumer concept. 
+ * Producer Consumer problem: The producer-consumer problem is the classical concurrency of a
+ *  multi process synchronization problem. It is also known as bound-buffer problem.
+ *   The problem describes two processes, the producer and the consumer, who share a fixed-size buffer used as a queue.
+ *   The producer generates a piece of data, put it into the buffer and starts again.*/
+ 
+package multi_threads;
+
+public class ProConsumer
+{
+    public static void main(String[] args)
+    {
+    	Shop_class c = new Shop_class();	
+    	Producer_class p1 = new Producer_class(c, 1);		 //creating an object of the class
+          Consumer_class c1 = new Consumer_class(c, 1);
+          p1.start();		//used to begin the execution of thread
+          c1.start();
+    }
+}
+
+
+package multi_threads;
+
+public class Shop_class
+{
+    private int materials;
+    private boolean available = false;
+    public synchronized int get()			// synchronized method to get a true or false
+    {
+          while (available == false)
+          {
+                try
+                {
+                      wait();
+                }
+                catch (InterruptedException ie)
+                {
+                }
+          }
+          available = false;
+          notifyAll();
+          return materials;
+    }
+    public synchronized void put(int value)			// synchronized method for true conditions
+    {
+          while (available == true)
+          {
+                try
+                {
+                      wait();
+                }
+                catch (InterruptedException ie)
+                {
+                      ie.printStackTrace();
+                }
+          }
+          materials = value;
+          available = true;
+          notifyAll();
+    }
+}
+
+
+package multi_threads;
+
+public class Consumer_class extends Thread
+{
+    private Shop_class Shop;
+    private int number;
+    public Consumer_class(Shop_class c, int number)		//create constructor and taking a parameter
+    {
+          Shop = c;
+          this.number = number;
+    }
+    public void run()		//used to perform action for a thread
+    {
+          int value = 0;
+          for (int i = 0; i < 10; i++)
+          {
+                value = Shop.get();
+                System.out.println("Consumed value " + this.number+ " got: " + value);
+          }
+    }
+}
+
+
+package multi_threads;
+
+public class Producer_class extends Thread				//extending Thread class
+{
+    private Shop_class Shop;
+    private int number;
+
+    public Producer_class(Shop_class c, int number)  	//create constructor and taking a parameter
+    {
+          Shop = c;
+          this.number = number;
+    }
+    public void run()			//used to perform action for a thread
+    {
+          for (int i = 0; i < 10; i++)
+          {
+                Shop.put(i);
+                System.out.println("Produced value " + this.number+ " put: " + i);			
+                try
+                {
+                      sleep((int)(Math.random() * 100));	//It will sleep for specified time
+                }
+                catch (InterruptedException ie)
+                {
+                      ie.printStackTrace();
+                }
+          }
+    }
+}
