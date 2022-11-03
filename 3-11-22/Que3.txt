@@ -1,0 +1,69 @@
+/*Ques3. Write a JAVA program which will generate the threads: 
+  - display 10 terms of Fibonacci series.
+  - To display 1 to 10 in reverse order.*/
+ package multi_threads;
+
+
+import java.util.Scanner;
+
+public class Fibo extends Thread	//extending Thread class
+{
+    public void run()	//used to perform action for a thread
+    {
+    	  try 
+          {
+              int a=0, b=1, c=0,n=10;
+              System.out.println("\n Fibonacci series:");
+              while (n>0)				//for printing 10 terms
+              {
+                   System.out.print(c+" ");
+                   a=b;
+                   b=c;
+                   c=a+b;
+                   n=n-1;
+              }
+       
+          } 
+          catch (Exception e) 
+          {
+        	  e.printStackTrace();
+          }
+        
+    }
+}
+
+
+package multi_threads;
+
+public class ReverseNo extends Thread
+{
+	public static void main(String[] args) 
+	{
+		ReverseNo obj=new ReverseNo();
+		Fibo obj1=new Fibo();
+		Thread t=new Thread(obj);		 //creating an object of the Thread class
+		Thread t1=new Thread(obj1);
+		t.start();				 //used to begin the execution of thread
+		t1.start();
+		
+
+	}
+	public void run()		//used to perform action for a thread.
+	{
+		  try 
+          {
+			  Thread.sleep(1000);	//used to pause the execution of current thread for specified time
+	          System.out.println("\nReverse Numbers: ");
+	          for (int i=10;i>=1;i--)			//for reverse no 
+	          {
+	               System.out.print(i+"  ");
+	          }
+          }
+		  catch (Exception e) 
+          {
+        	  e.printStackTrace();
+          }
+	     
+	  
+	}
+}
