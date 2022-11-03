@@ -14,7 +14,7 @@ public class Fibo extends Thread	//extending Thread class
           {
               int a=0, b=1, c=0,n=100;
               System.out.println("\n Fibonacci series:");
-              while (n>0)				//for printing 10 terms
+              while (n>0)				//for printing 100 terms
               {
                    System.out.print(c+" ");
                    a=b;
