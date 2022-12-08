@@ -1,0 +1,56 @@
+7/12/2022
+
+use Data;
+create table emp(eid int primary key,fname varchar(30),lname varchar(30),
+salary int,DOB date,Djoin date,Dep varchar(30),Des varchar(30),City varchar(30),state varchar(30));
+insert into emp values(1,"apurwa","bhoir",40000,"2000-02-15","2022-11-14","comp","Software Developer",
+"pune","maharastra");
+insert into emp values(2,"pooja","patil",90000,"1995-08-1","2022-11-06","comp","QA",
+"Mumbai","maharastra");
+insert into emp values(3,"dhara","patil",60000,"2002-05-17","2022-09-01","civil","architecture",
+"pune","maharastra");
+insert into emp values(4,"varun","sheti",80000,"2000-05-02","2022-09-01","civil","Planning Engineer",
+"bangalore","karnataka");
+insert into emp values(5,"dhani","kumar",40000,"2000-10-02","2022-09-01","mechanical","design Engineer",
+"nashik","maharastra");
+insert into emp values(6,"shreya","kapoor",80000,"2000-05-02","2022-09-01","civil","Planning Engineer",
+"mumbai","maharastra");
+select * from emp;
+
+create table Bonus(Eref_Id int,IncDate int,IncAmount int,foreign key(Eref_Id) references emp(eid));
+alter table Bonus modify  IncDate date;
+insert into Bonus values(1,"2022-12-15",50000);
+insert into Bonus values(2,"2022-10-01",40000);
+insert into Bonus values(3,"2022-09-15",30000);
+insert into Bonus values(4,"2022-11-25",80000);
+insert into Bonus values(5,"2022-12-15",20000);
+insert into Bonus values(6,"2022-02-07",10000);
+select * from Bonus;
+
+
+select fname as Ename from emp;                                    #1 fetch “fname” from  emp table using the alias name as <Ename>.
+select ucase(fname) from emp;                                      #2 fetch “fname” from emp table in upper case. 
+Select upper(fname) from emp;	                                     #2
+select distinct(Des) FROM emp;	                                   #3	fetch unique values of  Des from emp table. 
+select distinct(Dep) FROM emp;	                                   #3 fetch unique values of  Dep from emp table.
+SELECT LEFT(fname, 3) FROM emp;	                                   #4 first three characters  of fname from emp table.
+SELECT SUBSTRING(fname, 1, 3) FROM emp;	                           #4 first three characters  of fname from emp table. 
+SELECT POSITION("p" IN fname) FROM emp WHERE fname = "apurwa"; 	   #5 find the position of the alphabet (‘p’) in the fname column ‘apurwa’ from  emp table. 
+SELECT INSTR(fname, "a") FROM emp WHERE fname = "apurwa";	         #5 find the position of the alphabet (‘a’) in the fname column ‘apurwa’ from  emp table. 
+SELECT RTRIM(fname) FROM emp;	                                     #6 after removing white spaces from the  right side.
+SELECT LTRIM(Dep) FROM emp;	                                       #7 after removing white spaces from the  left side.
+select  distinct Dep, length(Dep)  as Length_of_Dep from emp;	     #8 Dep from emp table and prints its  length. 
+select replace(fname, "a", "A") FROM emp;	                         #9 after replacing ‘a’ with ‘A’.
+select concat(fname, " ", lname) as complete_name FROM emp;	       #10 to print the fname and lname from emp table into a single column complete_name. 
+select * from emp ORDER BY fname;	                                 #11 emp table order by fname  Ascending 
+select * from emp ORDER BY Dep desc;	                             #12 emp table order by Dep Descending. 
+select * from emp where fname in ("shreya", "dhara");	             #13 with first names, “shreya” and “dhara” from  EMPLOYEE table.
+select * from emp where fname not in ("shreya", "dhara");	         #14 excluding first names, “shreya” and “dhara” from  EMPLOYEE table. 
+select * from emp where Dep="civil";	                             #15 with DEPARTMENT name as “civil”. 
+select * from emp where fname like '%a%'; 	                       #16 contains with a
+select * from emp where fname like 'a%';                           #16 start with a
+select * from emp where fname like '%a'; 	                         #17 end with a
+select * from emp where fname like "_____a";	                     #18 ends with ‘a’ and contains six alphabets.
+select * from emp where salary between 40000 and 60000; 	         #19 SALARY lies between 40000 and 60000. 
+select * from emp where Djoin like "2022-09-01";	                 #20 who have joined in 2022-09-01
+SELECT * FROM emp WHERE year(Djoin) = 2022 AND month(Djoin) = 11;	 #20 who have joined in 2022-11
